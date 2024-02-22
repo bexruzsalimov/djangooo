@@ -1,0 +1,47 @@
+{% extends 'registration/base_registration.html' %}
+
+{% block content %}
+
+<section>
+	<div class="container">
+		<div class="row">
+      <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div class="p-4 p-sm-5 bg-primary bg-opacity-10 rounded">
+					<h2>Hisobingizni yasab oling</h2>
+					<!-- Form START -->
+					<form method="post" action="">
+						{% csrf_token %}
+						{{ form }}
+
+						<div class="row align-items-center">
+							<div class="col-sm-4">
+								<button type="submit" class="btn btn-success">Jo'natish</button>
+							</div>
+							<div class="col-sm-8 text-sm-end">
+								<span>
+                                    Accountingiz mavjudmi?
+                                    <a href="{% url 'user:sign_in' %}"><u>Kirish</u></a></span>
+							</div>
+						</div>
+					</form>
+					<!-- Form END -->
+					<hr>
+					<!-- Social-media btn -->
+					<div class="text-center">
+						<p>Sign in with your social network for quick access</p>
+						<ul class="list-unstyled d-sm-flex mt-3 justify-content-center">
+							<li class="mx-2">
+								<a href="#" class="btn bg-facebook d-inline-block"><i class="fab fa-facebook-f me-2"></i> Sign in with Facebook</a>
+							</li>
+							<li class="mx-2">
+								<a href="#" class="btn bg-google d-inline-block"><i class="fab fa-google me-2"></i> Sign in with google</a>
+							</li>
+						</ul>
+					</div>
+        </div>
+      </div>
+    </div>
+	</div>
+</section>
+
+ {% endblock %}
