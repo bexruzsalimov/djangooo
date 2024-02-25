@@ -80,13 +80,13 @@ class SignUpForm(UserCreationForm):
         
 class CustomLoginForm(AuthenticationForm):
     phone = forms.CharField(max_length=15, required=True, help_text="<small><b>Bo'sh</b> joylarisiz va <b>(+998)</b> kerak emas</small>", label=_("Telefon"), 
-                            widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'93-523-11-90', 'type':"tel"}))
+                            widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder':'93-523-11-90', 'type':"tel"}))
     
     password = forms.CharField(
         label=_("Parol"),
         strip=False,
         widget=forms.PasswordInput(
-            attrs={'class': 'form-control', 'placeholder': 'Parol', "type": "password"}),
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Parol', "type": "password"}),
     )
   
     error_messages = {
@@ -98,7 +98,7 @@ class CustomLoginForm(AuthenticationForm):
 
     def __init__(self, request=None, *args, **kwargs ):
         super().__init__(request, *args, **kwargs)
-        self.fields['username'] = self.fields.pop['phone']
+        self.fields['username'] = self.fields.pop('phone')
         self.fields['username'].widget.attrs['placeholder'] = _('Telefon')
 
         if self.fields["username"].label is None:
