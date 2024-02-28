@@ -21,5 +21,14 @@ def post_detail(request, id):
         'post': post,
     }
 
-    return render(request, 'post_detail.html', data)
+    return render(request, 'posts/post_detail.html', data)
+
+
+def post_create(request):
+
+    data = {
+        
+    }
+
+    return render(request, 'posts/post-create.html', data)
 

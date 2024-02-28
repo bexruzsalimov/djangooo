@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="py-4">
+	<div class="container">
+		<div class="row g-4">
+
+			<div class="col-12">
+				<!-- Counter START -->
+				<div class="row g-4">
+					
+					<!-- Counter item -->
+					<div class="col-sm-6 col-lg-3">
+						<div class="card card-body border p-3">
+							<div class="d-flex align-items-center">
+								<!-- Icon -->
+								<div class="icon-xl fs-1 bg-success bg-opacity-10 rounded-3 text-success">
+									<i class="bi bi-people-fill"></i>
+								</div>
+								<!-- Content -->
+								<div class="ms-3">
+									<h3>134K</h3>
+									<h6 class="mb-0">Pageviews</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Counter item -->
+					<div class="col-sm-6 col-lg-3">
+						<div class="card card-body border p-3">
+							<div class="d-flex align-items-center">
+								<!-- Icon -->
+								<div class="icon-xl fs-1 bg-primary bg-opacity-10 rounded-3 text-primary">
+									<i class="bi bi-file-earmark-text-fill"></i>
+								</div>
+								<!-- Content -->
+								<div class="ms-3">
+									<h3>180</h3>
+									<h6 class="mb-0">Posts</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Counter item -->
+					<div class="col-sm-6 col-lg-3">
+						<div class="card card-body border p-3">
+							<div class="d-flex align-items-center">
+								<!-- Icon -->
+								<div class="icon-xl fs-1 bg-danger bg-opacity-10 rounded-3 text-danger">
+									<i class="bi bi-suit-heart-fill"></i>
+								</div>
+								<!-- Content -->
+								<div class="ms-3">
+									<h3>267K</h3>
+									<h6 class="mb-0">Likes</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Counter item -->
+					<div class="col-sm-6 col-lg-3">
+						<div class="card card-body border p-3">
+							<div class="d-flex align-items-center">
+								<!-- Icon -->
+								<div class="icon-xl fs-1 bg-info bg-opacity-10 rounded-3 text-info">
+									<i class="bi bi-bar-chart-line-fill"></i>
+								</div>
+								<!-- Content -->
+								<div class="ms-3">
+									<h3>84K</h3>
+									<h6 class="mb-0">Visitors</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- Counter END -->
+			</div>
+
+
+			<div class="col-12">
+				<!-- Blog list table START -->
+				<div class="card border bg-transparent rounded-3">
+					<!-- Card header START -->
+					<div class="card-header bg-transparent border-bottom p-3">
+						<div class="d-sm-flex justify-content-between align-items-center">
+							<h5 class="mb-2 mb-sm-0">
+								Blog list 
+								<span class="badge bg-primary bg-opacity-10 text-primary">
+									105
+								</span>
+							</h5>
+							<a href="{% url 'blog:post_create' %}" class="btn btn-sm btn-primary mb-0">Add New</a>
+						</div>
+					</div>
+					<!-- Card header END -->
+
+					<!-- Card body START -->
+					<div class="card-body">
+
+						<!-- Search and select START -->
+						<div class="row g-3 align-items-center justify-content-between mb-3">
+							<!-- Search -->
+							<div class="col-md-8">
+								<form class="rounded position-relative">
+									<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+									<button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+								</form>
+							</div>
+
+							<!-- Select option -->
+							<div class="col-md-3">
+								<!-- Short by filter -->
+								<form>
+									<select class="form-select z-index-9 bg-transparent" aria-label=".form-select-sm">
+										<option value="">Sort by</option>
+										<option>Free</option>
+										<option>Newest</option>
+										<option>Oldest</option>
+									</select>
+								</form>
+							</div>
+						</div>
+						<!-- Search and select END -->
+
+						<!-- Blog list table START -->
+						<div class="table-responsive border-0">
+							<table class="table align-middle p-4 mb-0 table-hover table-shrink">
+								<!-- Table head -->
+								<thead class="table-dark">
+									<tr>
+										<th scope="col" class="border-0 rounded-start">Blog Name</th>
+										<th scope="col" class="border-0">Published Date</th>
+										<th scope="col" class="border-0">Categories</th>
+										<th scope="col" class="border-0 rounded-end">Action</th>
+									</tr>
+								</thead>
+
+								<!-- Table body START -->
+								<tbody class="border-top-0">
+									{% for post in posts %}
+									<tr>
+										<!-- Table data -->
+										<td>
+											<h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">
+												{{ post.name|truncatewords:8 }}
+											</a></h6>
+										</td>
+										
+										<!-- Table data -->
+										<td>{{ post.created_at|timesince }}</td>
+										<!-- Table data -->
+										<td>
+											<a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.category }}</a>
+										</td>
+										
+										<!-- Table data -->
+										<td>
+                      <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete"><i class="bi bi-trash"></i></a>
+                        <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
+                      </div>
+										</td>
+									</tr>
+									{% endfor %}
+
+								</tbody>
+								<!-- Table body END -->
+							</table>
+						</div>
+						<!-- Blog list table END -->
+
+						{% if posts.has_other_pages %}
+						<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
+							<!-- Content -->
+							<p class="mb-sm-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+							<!-- Pagination -->
+							<nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
+								<ul class="pagination">
+
+									{% if posts.has_previous %}
+									<li class="page-item"><a class="page-link" href="?page=1">Orqaga</a></li>
+									{% else %}
+									<li class="page-item disabled"></li>
+									{% endif %}
+							  
+							  
+									{% for i in posts.paginator.page_range %}
+									{% if posts.number == i %}
+									<li class="page-item disabled"><a class="page-link">{{ i }}</a></li>
+									{% else %}
+									<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+									{% endif %}
+									{% endfor %}
+								  </ul>
+							</nav>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+				<!-- Blog list table END -->
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
