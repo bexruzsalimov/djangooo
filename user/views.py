@@ -28,7 +28,7 @@ class LoginView(LoginView):
 def dashboard(request, id):
     user = get_object_or_404(User, id=id)
     user_posts = Post.objects.filter(author=user)
-    paginitor = Paginator(user_posts, 1)
+    paginitor = Paginator(user_posts, 2)
     page_number = request.GET.get('page', 1)
     try:
         posts = paginitor.page(page_number)

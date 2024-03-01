@@ -162,8 +162,8 @@
 										<!-- Table data -->
 										<td>
                       <div class="d-flex gap-2">
-                        <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete"><i class="bi bi-trash"></i></a>
-                        <a href="dashboard-post-edit.html" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
+                        <a href="{% url 'blog:post_delete' post.id %}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete"><i class="bi bi-trash"></i></a>
+                        <a href="{% url 'blog:post_update' post.id %}" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit"><i class="bi bi-pencil-square"></i></a>
                       </div>
 										</td>
 									</tr>

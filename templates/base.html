@@ -261,22 +261,8 @@ Header START -->
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
 
 					<!-- Nav item 1 Demos -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-						<ul class="dropdown-menu" aria-labelledby="homeMenu">
-							<li> <a class="dropdown-item active" href="index.html">Home default</a></li>
-							<li> <a class="dropdown-item" href="index-lazy.html">Home lazy load</a></li>
-							<li> <a class="dropdown-item" href="index-2.html">Magazine classic</a></li>
-							<li> <a class="dropdown-item" href="index-3.html">Magazine</a></li>
-							<li> <a class="dropdown-item" href="index-4.html">Home cards</a></li>
-							<li> <a class="dropdown-item" href="index-5.html">Blog classic</a></li>
-							<li> <a class="dropdown-item" href="index-6.html">Blog Personal </a></li>
-							<li> <a class="dropdown-item" href="index-7.html">Blog Vintage</a></li>
-							<li> <a class="dropdown-item" href="index-8.html">Blog Tech</a></li>
-							<li> <a class="dropdown-item" href="index-9.html">Blog Fashion</a></li>
-							<li> <a class="dropdown-item" href="index-10.html">Blog Podcast</a></li>
-							<li> <a class="dropdown-item" href="index-11.html">Home Shop </a></li>
-						</ul>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'blog:home' %}">Home</a>
 					</li>
 
 					<!-- Nav item 2 Pages -->
