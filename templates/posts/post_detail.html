@@ -17,7 +17,7 @@
                                 <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
                             </div>
                             <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">BexruzSalimov</a>
-                            <p>An editor at Blogzine</p>
+                            <p>Blogzine muxarriri</p>
                         </div>
                         <hr class="d-none d-lg-block">
              
@@ -69,10 +69,11 @@
                     <h4> 
                         {{ post.summary }}
                     </h4>
-
+                    {% if post.img %}
                     <figure class="figure mt-4 mb-4">
                         <img class="rounded" src="{{ post.img.url }}" alt="Image">
                 </figure>
+                {% endif%}
 
     
                     <p class="mb-5">
@@ -106,7 +107,7 @@
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <div>
                                     <h4 class="m-0"><a href="#" class="text-reset">BexruzSalimov</a></h4>
-                                    <small>An editor at Blogzine</small>
+                                    <small>Blogzine muxarriri</small>
                                 </div>
                                 <a href="#" class="btn btn-xs btn-primary-soft">View Articles</a>
                             </div>
