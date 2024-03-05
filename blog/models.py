@@ -30,7 +30,7 @@ class Post(models.Model):
     name = models.CharField(max_length=150)
     summary = models.CharField(max_length=300)
     text = models.TextField()
-    status = models.BooleanField(default=False )
+    status = models.BooleanField(default=False)
     img = models.ImageField(upload_to='images/', blank=True)
     video = models.FileField(upload_to='videos/', blank=True)
     audio = models.FileField(upload_to='audios/', blank=True)
