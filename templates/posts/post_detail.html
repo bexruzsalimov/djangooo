@@ -14,15 +14,15 @@
                         <!-- Author info -->
                         <div class="position-relative">
                             <div class="avatar avatar-xl">
-                                <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+                                <img class="avatar-img rounded-circle" src="{{ post.author.avatar.url }}">
                             </div>
-                            <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">BexruzSalimov</a>
-                            <p>Blogzine muxarriri</p>
-                        </div>
+                            <a href="#" class="h5 stretched-link mt-2 mb-0 d-block">{{ post.author.full_name }}</a>
+                            <p>{{ post.author.job }}</p>
+                        </div> 
                         <hr class="d-none d-lg-block">
              
                         <ul class="list-inline list-unstyled">
-                            <li class="list-inline-item d-lg-block my-lg-2">Nov 15, 2022</li>
+                            <li class="list-inline-item d-lg-block my-lg-2">{{ post.created_at|date:"M d, Y" }}</li>
                             <li class="list-inline-item d-lg-block my-lg-2">5 min read</li>
                             <li class="list-inline-item d-lg-block my-lg-2"><a href="#" class="text-body"><i class="far fa-heart me-1"></i></a> 266</li>
                             <li class="list-inline-item d-lg-block my-lg-2"><i class="far fa-eye me-1"></i> 2344 Views</li>
@@ -69,7 +69,7 @@
                     <h4> 
                         {{ post.summary }}
                     </h4>
-                    {% if post.img %}
+                    {% if post.img  %}
                     <figure class="figure mt-4 mb-4">
                         <img class="rounded" src="{{ post.img.url }}" alt="Image">
                 </figure>
@@ -99,19 +99,19 @@
                         <!-- Avatar -->
                         <a href="#">
                             <div class="avatar avatar-xxl me-4">
-                                <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+                                <img class="avatar-img rounded-circle" src="{{ post.author.avatar.url }}" alt="avatar">
                             </div>
                         </a>
                         <!-- Info -->
                         <div>
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <div>
-                                    <h4 class="m-0"><a href="#" class="text-reset">BexruzSalimov</a></h4>
-                                    <small>Blogzine muxarriri</small>
+                                    <h4 class="m-0"><a href="#" class="text-reset">{{ post.author.full_name }}</a></h4>
+                                    <small>{{ post.author.job }}</small>
                                 </div>
                                 <a href="#" class="btn btn-xs btn-primary-soft">View Articles</a>
                             </div>
-                            <p class="my-2">Louis Ferguson is a senior editor for the blogzine and also reports on breaking news based in London. He has written about government, criminal justice, and the role of money in politics since 2015.</p>
+                            <p class="my-2">{{ post.author.bio }}</p>
                             <!-- Social icons -->
                             <ul class="nav">
                                 <li class="nav-item">

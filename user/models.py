@@ -25,9 +25,12 @@ class UserManager(BaseUserManager):
         return self.create_user(phone, password, **extra_fields)
     
 class User(AbstractBaseUser, PermissionsMixin):
-    id = models.UUIDField(
+    id = models.UUIDField( 
         default=uuid.uuid4, unique=True, editable=False, db_index=True, primary_key=True
     )
+    avatar = models.ImageField(upload_to='images/', blank=True)
+    job = models.CharField(max_length=50, blank=True)
+    bio = models.CharField(max_length=200, blank=True)
     full_name = models.CharField(
         max_length=255, default='', verbose_name="Ism familiya")
     phone = models.CharField(max_length=15, unique=True,

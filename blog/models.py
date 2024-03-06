@@ -43,3 +43,26 @@ class Post(models.Model):
 
     class Meta:
         ordering = ('-created_at',)  
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    body = models.TextField()
+    parent = models.ForeignKey('self', on_delete=models.CASCADE,null=True, blank=True, related_name="replies")
+    created_at = models.DateTimeField (auto_now_add=True)
+    updated_up = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at', '-updated_up']
+
+    @property
+    def getReplies(self):
+        return Comment.objects.filter(parent=self).reverse()
+    
+    @property
+    def is_parent(self):
+        if self.parent is None:
+            return True
+        else:
+            return self.body
