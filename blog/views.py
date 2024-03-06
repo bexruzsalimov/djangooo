@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from blog.models import Post, Category
-from blog.forms import CreatePostForm, UpdatePostForm
+from blog.models import Post, Category, Comment
+from blog.forms import CreatePostForm, UpdatePostForm, CommentForm
 
 def home(request):
     posts = Post.objects.all()
@@ -17,8 +17,33 @@ def home(request):
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
 
+    comments = post.comment_set.all().order_by("-created_at")
+    comments_count = comments.count()
+
+    if request.method == 'POST':
+         comment_form = CommentForm(request.POST)
+         if comment_form.is_valid():
+            body = comment_form.cleaned_data['body']
+            user = request.user
+            try:
+                parent = request.POST.get('parent')
+            except:
+                parent = None
+            new_comment = Comment(body=body, user=user, post=post, parent=None)
+            new_comment.save()
+            return redirect('blog:post_detail', id=post.id)   
+    else:
+        comment_form = CommentForm()
+    
+
+
     data = {
         'post': post,
+        'comments': comments,
+        'comments_count': comments_count,
+        'comment_form': comment_form,
+
+
     }
 
     return render(request, 'posts/post_detail.html', data)

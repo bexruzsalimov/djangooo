@@ -1,6 +1,7 @@
 from user.models import User
 from django import forms
-from .models import Post, Category
+from django.forms.widgets import TextInput
+from .models import Post, Category, Comment
 
       
 
@@ -55,3 +56,14 @@ class UpdatePostForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['category', 'name', 'summary', 'text', 'image',]
+
+class CommentForm(forms.ModelForm):
+    body = forms.CharField(label=False,
+        widget=forms.Textarea(
+            attrs={'class': 'form-control', 'placeholder': 'fikringizni shu yerda qoldiring...', 'rows': '3'}
+    ))
+    class Meta:
+        model = Comment
+        fields = ['body', 'parent']
+
+
