@@ -1,8 +1,36 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from blog.models import Post, Category, Comment
+from blog.models import Post, Category, Comment, Trend
 from blog.forms import CreatePostForm, UpdatePostForm, CommentForm
+from collections import Counter
+
+def extract_hashtags(text, trends):
+    for word in text.split():
+        if word[0] == '#':
+            trends.append(word[1:])
+
+        return trends
+
+def trends_all(request):
+    trends = Trend.objects.all()
+    return {"trends": trends}
+
 
 def home(request):
+
+    for trend in Trend.objects.all():
+        trend.delete()
+
+    trends = []
+    for post in Post.objects.all():
+        text = f"{post.name} {post.summary} {post.text}"
+        for word in text.split():
+            if word[0] == '#':
+                trends.append(word[1:])
+    for trend in Counter(trends).most_common(10):
+        Trend.objects.create(hashtag=trend[0], occurences=trend[1])
+
+        
+
     posts = Post.objects.all()
     posts_sponsored = Post.objects.filter(status=True)
 
@@ -16,6 +44,9 @@ def home(request):
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
+
+    privous_post = Post.objects.filter(id__lt=post.id).order_by('-created_at').first()
+    next_post = Post.objects.filter(id__gt=post.id).order_by('-created_at').first()
 
     comments = post.comment_set.all().order_by("-created_at")
     comments_count = comments.count()
@@ -42,12 +73,12 @@ def post_detail(request, id):
         'comments': comments,
         'comments_count': comments_count,
         'comment_form': comment_form,
-
-
+        'privous_post': privous_post,
+        'next_post': next_post,
     }
 
     return render(request, 'posts/post_detail.html', data)
-
+ 
 
 def post_create(request):
 

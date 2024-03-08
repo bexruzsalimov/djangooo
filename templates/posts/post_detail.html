@@ -3,6 +3,7 @@
 {% block content %}
 
 <main>
+    {{ trends }}
     <div class="border-bottom border-primary border-1 opacity-1"></div>
     
     <section class="pt-0">
@@ -56,17 +57,24 @@
                     <p class="mb-5">
                         {{ post.text  }}
                     </p>
-    
+                    {% if privous_post %}
                     <div class="row g-0 mt-2">
                         <div class="col-sm-6 bg-primary bg-opacity-10 p-4 position-relative border-end border-1 rounded-start">
                             <span><i class="bi bi-arrow-left me-3 rtl-flip"></i>Previous post</span>
-                            <h5 class="m-0"><a href="#" class="stretched-link btn-link text-reset">Dirty little secrets about the business industry</a></h5>
+                            <h5 class="m-0">
+                                <a href="{% url 'blog:post_detail' privous_post.id %}" class="stretched-link btn-link text-reset">
+                                    {{ privous_post.name }}
+                                </a>
+                            </h5>
                         </div>
+                        {% endif %}
+                        {% if next_post %}
                         <div class="col-sm-6 bg-primary bg-opacity-10 p-4 position-relative text-sm-end rounded-end">
                             <span>Next post<i class="bi bi-arrow-right ms-3 rtl-flip"></i></span>
-                            <h5 class="m-0"><a href="#" class="stretched-link btn-link text-reset">Bad habits that people in the industry need to quit</a></h5>
+                            <h5 class="m-0"><a href="{% url 'blog:post_detail' next_post.id %}" class="stretched-link btn-link text-reset">{{ next_post.name }}</a></h5>
                         </div>
                     </div>
+                    {% endif %}
     
                     <!-- Divider -->
                     <hr>
@@ -121,7 +129,7 @@
                                 <div class="mb-2">
                                     <h5 class="m-0">{{ comment.user.full_name }}</h5>
                                     <span class="me-3 small">{{ comment.created_at }}</span>
-                                    <a href="#" class="text-body fw-normal">Reply</a>
+                                    <a href="#form-reply" style="cursor: pointer;" data-comment-id="{{ comment.id }}" onclick="ShowReplyForm(this)" class="text-body fw-normal">Reply</a>
                                 </div>
                                 <p>{{ comment.body }}</p>
                               </div>
@@ -145,7 +153,7 @@
                     </div>
                     <!-- Comments END -->
                     <!-- Reply START -->
-                    <div>
+                    <div id="form-reply">
                         <h3>Javob qoldiring</h3>
                         <form class="row g-3 mt-2" method="post">
                         {% csrf_token %}
@@ -194,21 +202,11 @@
                             </li>
                         </ul>
                         <ul class="list-inline text-primary-hover mt-0 mt-lg-3">
+                            {% for i in trends %}
                             <li class="list-inline-item">
-                                <a class="text-body" href="#">#agency</a>
+                                <a class="text-body" href="#">#{{ i.hashtag }}</a>
                             </li>
-                            <li class="list-inline-item">
-                                <a class="text-body" href="#">#business</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="text-body" href="#">#theme</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="text-body" href="#">#bootstrap</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="text-body" href="#">#marketing</a>
-                            </li>
+                            {% endfor %}
                           </ul>
                         <!-- Advertisement -->
                         <div class="mt-4">

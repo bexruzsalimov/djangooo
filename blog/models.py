@@ -66,3 +66,16 @@ class Comment(models.Model):
             return True
         else:
             return self.body
+        
+    def __str__(self) -> str:
+        return f"{self.body} - {self.parent}"
+        
+class Trend(models.Model):
+    hashtag = models.CharField(max_length=255)
+    occurences = models.IntegerField() 
+    
+    def __str__(self) -> str:
+        return f"{self.hashtag} - {self.occurences}"
+
+    class Meta:
+        ordering = ['-occurences']
