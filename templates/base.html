@@ -99,53 +99,6 @@
 
 <body>
 
-<!-- Top alert END -->
-
-<!-- Offcanvas START -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
-	<div class="offcanvas-header justify-content-end">
-		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-	</div>
-	<div class="offcanvas-body d-flex flex-column pt-0">
-		<div>
-			<img class="light-mode-item my-3" src="assets/images/logo.svg" alt="logo">
-			<img class="dark-mode-item my-3" src="assets/images/logo-light.svg" alt="logo">
-			<p>The next-generation blog, news, and magazine theme for you to start sharing your stories today! </p>
-			<!-- Nav START -->
-			<ul class="nav d-block flex-column my-4">
-				<li class="nav-item h5">
-					<a class="nav-link" href="index.html">Home</a>
-				<li class="nav-item h5">
-					<a class="nav-link" href="about-us.html">About</a>
-				</li>
-				<li class="nav-item h5">
-					<a class="nav-link" href="post-grid.html">Our Journal</a>
-				</li>
-				<li class="nav-item h5">
-					<a class="nav-link" href="contact-us.html">Contact Us</a>
-				</li>
-			</ul>
-			<!-- Nav END -->
-			<div class="bg-primary bg-opacity-10 p-4 mb-4 text-center w-100 rounded">
-				<span>The Blogzine</span>
-				<h3>Save on Premium Membership</h3>
-				<p>Get the insights report trusted by experts around the globe. Become a Member Today!</p>
-				<a href="#" class="btn btn-warning">View pricing plans</a>
-			</div>
-		</div>
-		<div class="mt-auto pb-3">
-			<!-- Address -->
-			<p class="text-body mb-2 fw-bold">New York, USA (HQ)</p>
-			<address class="mb-0">750 Sing Sing Rd, Horseheads, NY, 14845</address>
-			<p class="mb-2">Call: <a href="#" class="text-body"><u>469-537-2410</u> (Toll-free)</a> </p>
-			<a href="#" class="text-body d-block">hello@blogzine.com</a>
-		</div>
-	</div>
-</div>
-<!-- Offcanvas END -->
-
-<!-- =======================
-Header START -->
 <header class="navbar-light navbar-sticky header-static">
 	<div class="navbar-top d-none d-lg-block small">
 		<div class="container">
@@ -153,7 +106,7 @@ Header START -->
 				<!-- Top bar left -->
 				<ul class="nav">
 					<li class="nav-item">
-						<a class="nav-link ps-0" href="about-us.html">About</a>
+				<a class="nav-link ps-0" href="about-us.html">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Forum</a>
@@ -260,216 +213,8 @@ Header START -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
 
-					<!-- Nav item 1 Demos -->
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'blog:home' %}">Home</a>
-					</li>
-
-					<!-- Nav item 2 Pages -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
-							<li> <a class="dropdown-item" href="about-us.html">About</a></li>
-							<li> <a class="dropdown-item" href="contact-us.html">Contact</a></li>
-							<!-- Dropdown submenu -->
-							<li class="dropdown-submenu dropend"> 
-								<a class="dropdown-item dropdown-toggle" href="#">Shop</a>
-								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="shop-grid.html">Shop grid</a> </li>
-									<li> <a class="dropdown-item" href="shop-detail.html">Shop detail</a> </li>
-									<li> <a class="dropdown-item" href="checkout.html">Checkout</a> </li>
-									<li> <a class="dropdown-item" href="my-cart.html">Cart</a> </li>
-									<li> <a class="dropdown-item" href="empty-cart.html">Empty Cart</a> </li>
-								</ul>
-							</li>
-							<!-- Dropdown submenu -->
-							<li class="dropdown-submenu dropend"> 
-								<a class="dropdown-item dropdown-toggle" href="#">Other Archives</a>
-								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="author.html">Author Page</a> </li>
-									<li> <a class="dropdown-item" href="categories.html">Category page 1</a> </li>
-									<li> <a class="dropdown-item" href="categories-2.html">Category page 2</a> </li>
-									<li> <a class="dropdown-item" href="tag.html"># tag</a> </li>
-									<li> <a class="dropdown-item" href="search-result.html">Search result</a> </li>
-								</ul>
-							</li>
-							<li> <a class="dropdown-item" href="404.html">Error 404</a></li>
-							<li> <a class="dropdown-item" href="signin.html">signin</a></li>
-							<li> <a class="dropdown-item" href="signup.html">signup</a></li>
-							<li> <a class="dropdown-item" href="offline.html">offline</a></li>
-							<!-- Dropdown submenu levels -->
-							<li class="dropdown-divider"></li>
-							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item dropdown-toggle" href="#">Dropdown levels</a>
-								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<!-- dropdown submenu open right -->
-									<li class="dropdown-submenu dropend">
-										<a class="dropdown-item dropdown-toggle" href="#">Dropdown (end)</a>
-										<ul class="dropdown-menu" data-bs-popper="none">
-											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
-											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
-										</ul>
-									</li>
-									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
-									<!-- dropdown submenu open left -->
-									<li class="dropdown-submenu dropstart">
-										<a class="dropdown-item dropdown-toggle" href="#">Dropdown (start)</a>
-										<ul class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
-											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
-											<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
-										</ul>
-									</li>
-									<li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
-								</ul>
-							</li>
-							<li class="dropdown-divider"></li>
-							<li> 
-								<a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
-									<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Support
-								</a> 
-							</li>
-							<li> 
-								<a class="dropdown-item" href="docs/index.html" target="_blank">
-									<i class="text-danger fa-fw bi bi-card-text me-2"></i>Documentation
-								</a> 
-							</li>
-							<li class="dropdown-divider"></li>
-							<li> 
-								<a class="dropdown-item" href="https://blogzine.webestica.com/rtl" target="_blank">
-									<i class="text-info fa-fw bi bi-toggle-off me-2"></i>RTL demo
-								</a> 
-							</li>
-							<li> 
-								<a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/" target="_blank">
-									<i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>Buy blogzine!
-								</a> 
-							</li>
-						</ul>
-					</li>
-
-					<!-- Nav item 3 Post -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Post</a>
-						<ul class="dropdown-menu" aria-labelledby="postMenu">
-							<!-- dropdown submenu -->
-							<li class="dropdown-submenu dropend"> 
-								<a class="dropdown-item dropdown-toggle" href="#">Post grid</a>
-								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="post-grid.html">Post grid</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-4-col.html">Post grid 4 col</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-masonry.html">Post grid masonry</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-masonry-filter.html">Post grid masonry filter</a> </li>
-									<li> <a class="dropdown-item" href="post-large-and-grid.html">Post mixed large than grid</a> </li>
-								</ul>
-							</li>
-							<li> <a class="dropdown-item" href="post-list.html">Post list</a> </li>
-							<li> <a class="dropdown-item" href="post-list-2.html">Post list 2</a> </li>
-							<li> <a class="dropdown-item" href="post-cards.html">Post card</a> </li>
-							<li> <a class="dropdown-item" href="post-overlay.html">Post Overlay</a> </li>
-							<li> <a class="dropdown-item" href="post-types.html">Post types</a> </li>
-							<li class="dropdown-divider"></li>
-							<li> <a class="dropdown-item" href="post-single.html">Post single magazine</a> </li>
-							<li> <a class="dropdown-item" href="post-single-2.html">Post single classic</a> </li>
-							<li> <a class="dropdown-item" href="post-single-3.html">Post single minimal</a> </li>
-							<li> <a class="dropdown-item" href="post-single-4.html">Post single card</a> </li>
-							<li> <a class="dropdown-item" href="post-single-5.html">Post single review</a> </li>
-							<li> <a class="dropdown-item" href="post-single-6.html">Post single video</a> </li>
-							<li> <a class="dropdown-item" href="podcast-single.html">Podcast single</a> </li>
-							<li class="dropdown-divider"></li>
-							<li> <a class="dropdown-item" href="pagination-styles.html">Pagination styles</a> </li>
-						</ul>
-					</li>
-
-					<!-- Nav item 4 Mega menu -->
-					<li class="nav-item dropdown dropdown-fullwidth">
-						<a class="nav-link dropdown-toggle" href="#" id="megaMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Lifestyle</a>
-						<div class="dropdown-menu" aria-labelledby="megaMenu">
-							<div class="container">
-								<div class="row g-4 p-3 flex-fill">
-									<!-- Card item START -->
-									<div class="col-sm-6 col-lg-3">
-										<div class="card bg-transparent">
-											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/01.jpg" alt="Card image">
-											<div class="card-body px-0 pt-3">
-												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">7 common mistakes everyone makes while traveling</a></h6>
-												<!-- Card info -->
-												<ul class="nav nav-divider align-items-center text-uppercase small mt-2">
-													<li class="nav-item">
-														<a href="#" class="text-reset btn-link">Joan Wallace</a>
-													</li>
-													<li class="nav-item">Feb 18, 2022</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<!-- Card item END -->
-									<!-- Card item START -->
-									<div class="col-sm-6 col-lg-3">
-										<div class="card bg-transparent">
-											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/02.jpg" alt="Card image">
-											<div class="card-body px-0 pt-3">
-												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">12 worst types of business accounts you follow on Twitter</a></h6>
-												<!-- Card info -->
-												<ul class="nav nav-divider align-items-center text-uppercase small mt-2">
-													<li class="nav-item">
-														<a href="#" class="text-reset btn-link">Lori Stevens</a>
-													</li>
-													<li class="nav-item">Jun 03, 2022</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<!-- Card item END -->
-									<!-- Card item START -->
-									<div class="col-sm-6 col-lg-3">
-										<div class="card bg-transparent">
-											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/03.jpg" alt="Card image">
-											<div class="card-body px-0 pt-3">
-												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">Skills that you can learn from business</a></h6>
-												<!-- Card info -->
-												<ul class="nav nav-divider align-items-center text-uppercase small mt-2">
-													<li class="nav-item">
-														<a href="#" class="text-reset btn-link">Judy Nguyen</a>
-													</li>
-													<li class="nav-item">Sep 07, 2022</li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<!-- Card item END -->
-									<!-- Card item START -->
-									<div class="col-sm-6 col-lg-3">
-										<div class="bg-primary bg-opacity-10 p-4 text-center h-100 w-100 rounded">
-											<span>The Blogzine</span>
-											<h3>Premium Membership</h3>
-											<p>Become a Member Today!</p>
-											<a href="#" class="btn btn-warning">View pricing plans</a>
-										</div>
-									</div>
-									<!-- Card item END -->
-								</div> <!-- Row END -->
-								<!-- Trending tags -->
-								<div class="row px-3">
-									<div class="col-12">
-										<ul class="list-inline mt-3">
-											<li class="list-inline-item">Trending tags:</li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-primary-soft">Travel</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-warning-soft">Business</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-success-soft">Tech</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-danger-soft">Gadgets</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-info-soft">Lifestyle</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-primary-soft">Vaccine</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-success-soft">Sports</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-danger-soft">Covid-19</a></li>
-											<li class="list-inline-item"><a href="#" class="btn btn-sm btn-info-soft">Politics</a></li>
-										</ul>
-									</div>
-								</div> <!-- Row END -->
-							</div>
-						</div>
 					</li>
 
 					{% if request.user.is_superuser %}
@@ -477,15 +222,75 @@ Header START -->
 					{% endif %}
 				</ul>
 			</div>
-			<!-- Main navbar END -->
 
-			<!-- Nav right START -->
 			<div class="nav flex-nowrap align-items-center">
-				<!-- Nav Button -->
-				<div class="nav-item d-none d-md-block">
-					<a href="#" class="btn btn-sm btn-danger mb-0 mx-2">Subscribe!</a>
+				{% if request.user.is_authenticated and not request.user.is_superuser %}
+				<div class="nav-item ms-2 ms-md-3 dropdown">
+					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+						{% if request.user.avatar %}
+						<img class="avatar-img rounded-circle" src="{{ request.user.avatar.url }}" alt="avatar">
+						{% else %}
+						<img class="avatar-img rounded-circle" src="data:image/png;base64,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" alt="avatar">
+						{% endif %}
+					</a>
+
+					<!-- Profile dropdown START -->
+					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+						<!-- Profile info -->
+						<li class="px-3">
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar me-3">
+									{% if request.user.avatar %}
+									<img class="avatar-img rounded-circle shadow" src="{{ request.user.avatar.url }}" alt="avatar">
+									{% else %}
+									<img class="avatar-img rounded-circle shadow" src="data:image/png;base64,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" alt="avatar">
+									{% endif %}
+								</div>
+								<div>
+									<a class="h6 mt-2 mt-sm-0" href="#">{{ request.user.full_name }}</a>
+									<p class="small m-0">+998{{ request.user.phone }}</p>
+								</div>
+							</div>
+							<hr>
+						</li>
+						<!-- Links -->
+						<li><a class="dropdown-item" href="{% url 'user:profile' request.user.id %}"><i class="bi bi-person fa-fw me-2"></i>Profilega O'tish</a></li>
+						<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+						<li><a class="dropdown-item" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+						<li class="dropdown-divider mb-2"></li>
+						<li>
+							<div class="align-items-center text-center py-0">
+								<span class="me-3">mode:</span>
+								<div class="btn-group theme-icon-active" role="group" aria-label="Default button group">
+									<button type="button" class="btn btn-light btn-sm mb-0 active" data-bs-theme-value="light">
+										<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch" viewBox="0 0 16 16">
+											<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+											<use href="#"></use>
+										</svg>
+									</button>
+									<button type="button" class="btn btn-light btn-sm mb-0" data-bs-theme-value="dark">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch" viewBox="0 0 16 16">
+											<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+											<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+											<use href="#"></use>
+										</svg>
+									</button>
+									<button type="button" class="btn btn-light btn-sm mb-0" data-bs-theme-value="auto">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch" viewBox="0 0 16 16">
+											<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+											<use href="#"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- Profile dropdown END -->
 				</div>
-				<!-- Nav Search -->
+				{% endif %}
+
 				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
 					<a class="nav-link dropdown-toggle" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="bi bi-search fs-4"> </i>
@@ -496,12 +301,6 @@ Header START -->
 							<button class="btn btn-success m-0" type="submit">Search</button>
 						</form>
 					</div>
-				</div>
-				<!-- Offcanvas menu toggler -->
-				<div class="nav-item">
-					<a class="nav-link p-0" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
-						<i class="bi bi-text-right rtl-flip fs-2" data-bs-target="#offcanvasMenu"> </i>
-					</a>
 				</div>
 			</div>
 			<!-- Nav right END -->

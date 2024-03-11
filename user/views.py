@@ -42,3 +42,15 @@ def dashboard(request, id):
     }
 
     return render(request, 'dashboard.html', data)
+
+
+
+def profile(request, id):
+    user = get_object_or_404(User, id=id)
+
+    data = {
+        'user': user,
+    }
+
+    return render(request, 'profile.html', data)
+

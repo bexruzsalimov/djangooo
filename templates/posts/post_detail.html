@@ -151,8 +151,7 @@
                                 {% endfor %}
     
                     </div>
-                    <!-- Comments END -->
-                    <!-- Reply START -->
+                    {% if request.user.is_authenticated %}
                     <div id="form-reply">
                         <h3>Javob qoldiring</h3>
                         <form class="row g-3 mt-2" method="post">
@@ -166,11 +165,10 @@
                           </div>
                         </form>
                     </div>
-                    <!-- Reply END -->
+                    {% else %}
+                    <h5>Please login to leave a comment </h5>
+                {% endif %}
                 </div>
-                <!-- Main Content END -->
-                
-                <!-- Right sidebar START -->
                 <div class="col-lg-3">
                     <div data-sticky="" data-margin-top="80" data-sticky-for="991">
                   <h4>Share this article</h4>
