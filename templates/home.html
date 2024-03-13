@@ -237,7 +237,7 @@
                                                         </div>
                                                     </div>
                                                     <span class="ms-3">by
-                                                         <a href="#" class="stretched-link text-reset btn-link">
+                                                         <a href="{% url 'user:profile' post.author.id %}" class="stretched-link text-reset btn-link">
                                                             {{ post.author.full_name|truncatewords:1  }}
                                                          </a>
                                                     </span>

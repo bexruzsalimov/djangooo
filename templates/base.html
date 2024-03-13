@@ -224,7 +224,7 @@
 			</div>
 
 			<div class="nav flex-nowrap align-items-center">
-				{% if request.user.is_authenticated and not request.user.is_superuser %}
+				{% if request.user.is_authenticated %}
 				<div class="nav-item ms-2 ms-md-3 dropdown">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 						{% if request.user.avatar %}

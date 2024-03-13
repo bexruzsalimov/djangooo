@@ -51,5 +51,14 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.phone
+    
+class Follow(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="followers", blank=True, null=True)
+    follower = models.ForeignKey(User, on_delete=models.CASCADE, related_name="followings", blank=True, null=True)
+    
+    
+    class Meta:
+        unique_together = ('user', 'follower',)
 
+    
 
