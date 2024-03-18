@@ -48,6 +48,19 @@ def dashboard(request, id):
 def profile(request, id):
     user = get_object_or_404(User, id=id)
 
+    if request.method == "POST":
+        full_name = request.POST.get('full_name')
+        phone = request.POST.get('phone')
+        job = request.POST.get('job')
+        bio = request.POST.get('bio')
+        
+        user.full_name = full_name
+        user.phone = phone
+        user.job = job
+        user.bio = bio
+        user.save()
+        return redirect('user:profile', user.id)
+
     
     try:
         status = Follow.objects.filter(user=user, follower=request.user).exists()

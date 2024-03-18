@@ -86,64 +86,66 @@
       <!-- Left sidebar START -->
       <div class="col-lg-7 col-xxl-8">
         <!-- Profile START -->
-        <div class="card border mb-4">
-          <div class="card-header border-bottom p-3">
-            <h5 class="card-header-title mb-0">Profile</h5>
-          </div>
-          <div class="card-body">
-            <!-- Full name -->
-            <div class="mb-3">
-              <label class="form-label">Ism Familiya</label>
-              <div class="input-group">
-                <input type="text" class="form-control" value="{{ user.full_name }}" placeholder="{{ user.full_name }}">
-              </div>
+        <form method="post" action="">
+          {% csrf_token %}
+          <div class="card border mb-4">
+            <div class="card-header border-bottom p-3">
+              <h5 class="card-header-title mb-0">Profile</h5>
             </div>
-            <!-- phone -->
-            <div class="mb-3">
-              <label class="form-label">Telefon</label>
-              <div class="input-group">
-                <input type="text" class="form-control" value="{{ user.phone }}">
-              </div>
-            </div>
-            <!-- Profile picture -->
-            <div class="mb-3">
-              <label class="form-label">Profile rasmi</label>
-              <!-- Avatar upload START -->
-              <div class="d-flex align-items-center">
-                <div class="position-relative me-3">
-                  <!-- Avatar edit -->
-                  <div class="position-absolute top-0 end-0  z-index-9">
-                    <a class="btn btn-sm btn-light btn-round mb-0 mt-n1 me-n1" href="#"> <i class="bi bi-pencil"></i> </a>
-                  </div>
-                  <!-- Avatar preview -->
-                  <div class="avatar avatar-xl">
-                    <img class="avatar-img rounded-circle border border-white border-3 shadow" src="{{user.avatar.url}}" alt="">
-                  </div>
-                </div>
-                <!-- Avatar remove button -->
-                <div class="avatar-remove">
-                  <button  type="button" class="btn btn-danger">Delete</button>
+            <div class="card-body">
+              <!-- Full name -->
+              <div class="mb-3">
+                <label class="form-label">Ism Familiya</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" required name="full_name" value="{{ user.full_name }}" placeholder="{{ user.full_name }}">
                 </div>
               </div>
-              <!-- Avatar upload END -->
-            </div>
-            <!-- Job title -->
-            <div class="mb-3">
-              <label class="form-label">Job</label>
-              <input class="form-control" type="text" value="{{ user.job }}">
-            </div>
-            <!-- Bio -->
-            <div class="mb-3">
-              <label class="form-label">Bio</label>
-              <textarea class="form-control" rows="3">{{ user.bio }}</textarea> 
-            </div>
-            <!-- Save button -->
-            <div class="d-flex justify-content-end mt-4">
-              <a href="#" class="btn btn-danger">Discard</a>
-              <a href="#" class="btn btn-primary ms-2">Save</a>
+              <!-- phone -->
+              <div class="mb-3">
+                <label class="form-label">Telefon</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" required name="phone" value="{{ user.phone }}">
+                </div>
+              </div>
+              <!-- Profile picture -->
+              <div class="mb-3">
+                <label class="form-label">Profile rasmi</label>
+                <!-- Avatar upload START -->
+                <div class="d-flex align-items-center">
+                  <div class="position-relative me-3">
+                    <!-- Avatar edit -->
+                    <div class="position-absolute top-0 end-0  z-index-9">
+                      <a class="btn btn-sm btn-light btn-round mb-0 mt-n1 me-n1" href="#"> <i class="bi bi-pencil"></i> </a>
+                    </div>
+                    <!-- Avatar preview -->
+                    <div class="avatar avatar-xl">
+                      <img class="avatar-img rounded-circle border border-white border-3 shadow" src="{{user.avatar.url}}" alt="">
+                    </div>
+                  </div>
+                  <!-- Avatar remove button -->
+                  <div class="avatar-remove">
+                    <button  type="button" class="btn btn-danger">Delete</button>
+                  </div>
+                </div>
+                <!-- Avatar upload END -->
+              </div>
+              <!-- Job title -->
+              <div class="mb-3">
+                <label class="form-label">Job</label>
+                <input class="form-control" type="text" required name="job" value="{{ user.job }}">
+              </div>
+              <!-- Bio -->
+              <div class="mb-3">
+                <label class="form-label">Bio</label>
+                <textarea class="form-control" name="bio" required rows="3">{{ user.bio }}</textarea> 
+              </div>
+              <!-- Save button -->
+              <div class="d-flex justify-content-end mt-4">
+                <button type="submit" class="btn btn-primary ms-2">Save</button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
         <!-- Profile END -->
         </div>
       </div>
