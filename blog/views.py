@@ -2,6 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Post, Category, Comment, Trend
 from blog.forms import CreatePostForm, UpdatePostForm, CommentForm
 from collections import Counter
+from django.contrib.auth import logout
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('blog:home')
+
 
 def extract_hashtags(text, trends):
     for word in text.split():
@@ -34,9 +41,16 @@ def home(request):
     posts = Post.objects.all()
     posts_sponsored = Post.objects.filter(status=True)
 
+    categories = Category.objects.all()
+
     data = {
         'posts': posts,
-        'posts_sponsored':  posts_sponsored    
+        'posts_sponsored':  posts_sponsored,
+        'trends_posts': posts[:5],
+        'one': posts[:1],
+        'three':posts[2:3],
+        'two': posts[:2],
+        'categories': categories[:6],
     }
 
     return render(request, 'home.html', data)
