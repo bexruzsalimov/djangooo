@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
 <head>
-	<title>Blogzine - Blog and Magazine Bootstrap 5 Theme</title>
+	<title>Blogzine</title>
 
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -255,7 +255,7 @@
 						<!-- Links -->
 						<li><a class="dropdown-item" href="{% url 'user:profile' request.user.id %}"><i class="bi bi-person fa-fw me-2"></i>Profilega O'tish</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Yordam</a></li>
-						<li><a class="dropdown-item" href="#"><i class="bi bi-power fa-fw me-2"></i>Chiqish</a></li>
+						<li><a class="dropdown-item" href="{% url 'blog:user_logout' %}"><i class="bi bi-power fa-fw me-2"></i>Chiqish</a></li>
 						<li class="dropdown-divider mb-2"></li>
 						<li>
 							<div class="align-items-center text-center py-0">
@@ -338,7 +338,6 @@ JS libraries, plugins and custom scripts -->
 
 <!-- Bootstrap JS -->
 <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-<script src="https://kit.fontawesome.com/60381fb95b.js" crossorigin="anonymous"></script>
 <!-- Vendors -->	
 <script src="{% static 'assets/vendor/tiny-slider/tiny-slider.js' %}"></script>
 <script src="{% static 'assets/vendor/sticky-js/sticky.min.js' %}"></script>
