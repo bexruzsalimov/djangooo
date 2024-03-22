@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Post, Category, Comment, Trend
 from blog.forms import CreatePostForm, UpdatePostForm, CommentForm
 from collections import Counter
+from django.db.models import Q
 from django.contrib.auth import logout
 
 
@@ -36,6 +37,10 @@ def home(request):
     for trend in Counter(trends).most_common(10):
         Trend.objects.create(hashtag=trend[0], occurences=trend[1])
 
+    if request.method == 'POST':
+        query = request.POST.get('query')
+        return redirect('blog:search', query=query)
+
         
 
     posts = Post.objects.all()
@@ -54,6 +59,21 @@ def home(request):
     }
 
     return render(request, 'home.html', data)
+
+def search(request, query):
+     posts = Post.objects.filter(
+         
+         Q(name__icontains=query) |
+         Q(summary__icontains=query)  |
+         Q(text__icontains=query)
+
+         )
+     data = {
+         'posts': posts
+    }
+
+     return render(request, 'search.html', data)
+
 
 
 def post_detail(request, id):
