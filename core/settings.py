@@ -56,11 +56,11 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    WEB_URL,
+    WEB_URL, 
     "http://127.0.0.1",
     "http://localhost",
 ] 
-
+ 
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
