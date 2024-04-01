@@ -5,6 +5,19 @@ import dj_database_url
 import logging
 
 
+from .cdn.conf import (
+    AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCES_KEY,
+    AWS_S3_SIGNATURE_VERSION,
+    AWS_STORAGE_BUCKET_NAME,
+    AWS_ENDPOINT_URL,
+    AWS_ENDPOINT,
+    AWS_S3_OBJECT_PARAMETERS,
+    DEFAULT_FILE_STORAGE,
+    STATICFILES_STORAGE,
+)
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
@@ -16,11 +29,11 @@ load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
 
-WEB_URL = os.environ.get('WEB_URL')
+WEBSITE_URL = os.environ.get('WEBSITE_URL')
 
 
 DJANGO_APPS = [
@@ -33,7 +46,7 @@ DJANGO_APPS = [
 ]
 
 EXTERNAL_APPS = [
-
+    "storages",
 ]
 
 LOCAL_APPS = [
@@ -56,11 +69,22 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    WEB_URL, 
+    f"https://www.{WEBSITE_URL}",
+    f"https://{WEBSITE_URL}",
     "http://127.0.0.1",
     "http://localhost",
 ] 
  
+CSRF_COOKIE_DOMAIN = WEBSITE_URL
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_HSTS_SECOND = 3600
+SECURE_HSTS_SECOND_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+
+
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
@@ -94,8 +118,6 @@ if DEBUG:
         }
     }
 else:
-    if os.getenv("DATABASE_URL", None) is None:
-        raise Exception("DATABASE_URL environment variable not defined")
     DATABASES = {
         "default":dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
@@ -127,16 +149,41 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATIC_URL = "/static/"
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# MEDIA_URL = "/media/"
+
+
+AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCES_KEY = AWS_SECRET_ACCES_KEY
+AWS_STORAGE_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME
+AWS_S3_ENDPOINT_URL = AWS_ENDPOINT_URL
+AWS_S3_OBJECT_PARAMETERS = AWS_S3_OBJECT_PARAMETERS
+AWS_LOCATION = AWS_STORAGE_BUCKET_NAME
+AWS_QUERYSTRING_EXPIRE = 5
+
+STATIC_URL = 'https://%s/%s/' % (AWS_ENDPOINT, AWS_LOCATION)
+MEDIA_URL = 'https://%s/%s/' % (AWS_ENDPOINT, AWS_LOCATION)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+MEDIAFILES_URL = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+STATICFILES_STORAGE = STATICFILES_STORAGE
+DEFAULT_FILE_STORAGE = DEFAULT_FILE_STORAGE
+
+AWS_ENABLED = True
+AWS_S3_SECURE_URLS = True
 
 
 
