@@ -4,7 +4,7 @@ import os
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCES_KEY = os.environ.get('AWS_SECRET_ACCES_KEY')
 AWS_S3_SIGNATURE_VERSION = 's3v4'
-AWS_STORAGE_BUCKET_NAME = ''
+AWS_STORAGE_BUCKET_NAME = 'litegram'
 AWS_ENDPOINT_URL = "https://fra1.digitaloceanspaces.com"
 AWS_ENDPOINT = "fra1.digitaloceanspaces.com"
 AWS_S3_OBJECT_PARAMETERS = {
