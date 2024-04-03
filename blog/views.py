@@ -112,7 +112,7 @@ def post_detail(request, id):
     }
 
     return render(request, 'posts/post_detail.html', data)
- 
+
 
 def post_create(request):
 
