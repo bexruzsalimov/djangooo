@@ -50,7 +50,7 @@ def profile(request, id):
 
     if request.method == "POST":
         full_name = request.POST.get('full_name')
-        avatar = request.FILE.get('avatar')
+        avatar = request.FILES.get('avatar')
         phone = request.POST.get('phone')
         job = request.POST.get('job')
         bio = request.POST.get('bio')
