@@ -243,6 +243,8 @@
 								<div class="avatar me-3">
 									{% if request.user.avatar %}
 									<img class="avatar-img rounded-circle shadow" src="{{ request.user.avatar.url }}" alt="avatar">
+									{% else %}
+									<img class="avatar-img rounded-circle shadow" src="{{ user.avatar.url }}" alt="avatar">
 									{% endif %}
 								</div>
 								<div>
