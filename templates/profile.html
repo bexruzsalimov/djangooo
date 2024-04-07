@@ -109,22 +109,21 @@
               </div>
               <!-- Profile picture -->
               <div class="mb-3">
-                <label class="form-label">Profile rasmi</label>
+                <label class="form-label">Profil rasmi</label>
                 <!-- Avatar upload START -->
                 <div class="d-flex align-items-center">
                   <div class="position-relative me-3">
+                    <!-- Avatar preview -->
                     {% if user.avatar %}
                     <div class="avatar avatar-xl">
-                      <img class="avatar-img rounded-circle border border-white border-3 shadow"
-                       src="{{user.avatar.url}}" alt="">
+                      <img class="avatar-img rounded-circle border border-white border-3 shadow" src="{{user.avatar.url}}" alt=""> 
                     </div>
                     {% endif %}
-                  </div>
                   <!-- Avatar remove button -->
                   <div class="avatar-sellect">
                     <input type="file" id="imageInput" name="avatar" accept="image/*">
                   </div>
-                </di>
+                </div>
                 <!-- Avatar upload END -->
               </div>
               <!-- Job title -->
